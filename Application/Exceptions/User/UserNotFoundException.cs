@@ -4,3 +4,4 @@ public class UserNotFoundException(int id) : Exception($"Utilizador com o id: {i
 {
     public int Id { get; } = id;
 }
+

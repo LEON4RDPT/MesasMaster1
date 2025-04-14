@@ -12,6 +12,11 @@ public class CustomExceptionMiddleware(RequestDelegate next)
         {
             await next(httpContext);
         }
+        catch (EmailNotFoundException ex)
+        {
+            httpContext.Response.StatusCode = (int)HttpStatusCode.NotFound;
+            await httpContext.Response.WriteAsJsonAsync(new { message = ex.Message });
+        }
         catch (MissingAttributeException ex)
         {
             httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
@@ -37,6 +42,11 @@ public class CustomExceptionMiddleware(RequestDelegate next)
             httpContext.Response.StatusCode = (int)HttpStatusCode.Conflict;
             await httpContext.Response.WriteAsJsonAsync(new { message = ex.Message });
         }
+        catch (MissingEnvironmentValue ex)
+        {
+            httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            await httpContext.Response.WriteAsJsonAsync(new { message = ex.Message });
+        } 
 
     }
 }

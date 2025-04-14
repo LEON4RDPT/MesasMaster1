@@ -24,7 +24,7 @@ public class PostUserHandler(ApplicationDbContext context) : IPostUser
             throw new MissingAttributeException(attribute.Key);
 
         var mail = _context.Users.Any(u => u.Email == request.Email);
-        if (!mail)
+        if (mail)
             throw new EmailAlreadyInUseException(request.Email);
 
         if (!EmailValidator.IsValidEmail(request.Email))
