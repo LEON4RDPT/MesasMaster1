@@ -2,7 +2,7 @@
 using Application.Exceptions.User;
 using Application.Interfaces.Auth;
 using Domain.Common.Classes.Jwt;
-using Domain.Common.Classes.User.Login;
+using Domain.Common.Classes.User.Auth;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,16 +1,19 @@
 ﻿using Application.Exceptions.Shared;
 using Application.Exceptions.User;
+using Application.Interfaces.Auth;
 using Application.Interfaces.User;
+using Domain.Common.Classes.Jwt;
 using Domain.Common.Classes.User.Create;
 using Domain.Common.Helpers;
 using Infrastructure.Data;
+using Infrastructure.Services.Auth;
 
 namespace Infrastructure.Services.User;
 
-public class PostUserHandler(ApplicationDbContext context) : IPostUser
+public class PostUserHandler(ApplicationDbContext context, IGenerateToken generateToken) : IPostUser
 {
     private readonly ApplicationDbContext _context = context;
-
+    private readonly IGenerateToken _generateToken = generateToken;
     public async Task<UserCreateResponse> Handle(UserCreateRequest request)
     {
         var attributeList = new Dictionary<string, object?>
@@ -31,8 +34,6 @@ public class PostUserHandler(ApplicationDbContext context) : IPostUser
         {
             throw new InvalidEmailException(request.Email);
         }
-            
-        
         
         var user = new Domain.Entities.User
         {
@@ -45,9 +46,15 @@ public class PostUserHandler(ApplicationDbContext context) : IPostUser
 
         var newUser = _context.Users.Add(user);
         await _context.SaveChangesAsync();
+        var token = _generateToken.Generate(new JwtUserRequest
+        {
+            Id = user.Id,
+            Name = user.Name,
+            IsAdmin = user.IsAdmin,
+        });
         return new UserCreateResponse
         {
-            Id = newUser.Entity.Id
+            Token = token
         };
     }
 }

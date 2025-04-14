@@ -1,4 +1,4 @@
-﻿using Domain.Common.Classes.User.Login;
+﻿using Domain.Common.Classes.User.Auth;
 using Domain.Common.Interfaces;
 
 namespace Application.Interfaces.Auth;

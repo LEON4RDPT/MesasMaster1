@@ -2,6 +2,7 @@
 using Application.Exceptions.User;
 using Application.Interfaces.User;
 using Domain.Common.Classes;
+using Domain.Common.Classes.Shared;
 using Domain.Common.Classes.User.Put;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;

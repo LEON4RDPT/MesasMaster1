@@ -4,6 +4,6 @@ namespace Domain.Common.Classes.User.Create;
 
 public class UserCreateResponse : IResponse
 {
-    public required int Id { get; set; }
+    public required string Token { get; set; }
 
 }

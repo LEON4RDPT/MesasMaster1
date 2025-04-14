@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces.User;
 using Domain.Common.Classes;
+using Domain.Common.Classes.Shared;
 using Domain.Common.Classes.User.Get;
 using Domain.Common.Classes.User.GetAll;
 using Infrastructure.Data;

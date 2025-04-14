@@ -1,6 +1,7 @@
 ﻿
 using Application.Interfaces.Auth;
 using Infrastructure.Services.Auth;
+using Infrastructure.Services.Mesa;
 using Infrastructure.Services.User;
 using WebApi.Controllers.Auth;
 using PostUserHandler = Infrastructure.Services.User.PostUserHandler;
@@ -18,6 +19,8 @@ namespace WebApi.Extensions
             services.AddScoped<DeleteUserHandler>();
             services.AddScoped<PutUserHandler>();
             services.AddScoped<PostAuthHandler>();
+            services.AddScoped<PostMesaHandler>();
+            services.AddScoped<GetMesaHandler>();
             return services;
         }
 

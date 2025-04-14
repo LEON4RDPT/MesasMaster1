@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Application.Exceptions.Mesa;
 using Application.Exceptions.Shared;
 using Application.Exceptions.User;
 
@@ -11,6 +12,16 @@ public class CustomExceptionMiddleware(RequestDelegate next)
         try
         {
             await next(httpContext);
+        }
+        catch (MesaNotFoundException ex)
+        {
+            httpContext.Response.StatusCode = (int)HttpStatusCode.NotFound;
+            await httpContext.Response.WriteAsJsonAsync(new { message = ex.Message });
+        }
+        catch (InvalidMesaPosition ex)
+        {
+            httpContext.Response.StatusCode = (int)HttpStatusCode.Conflict;
+            await httpContext.Response.WriteAsJsonAsync(new { message = ex.Message });
         }
         catch (EmailNotFoundException ex)
         {

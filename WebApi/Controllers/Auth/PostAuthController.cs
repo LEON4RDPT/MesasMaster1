@@ -1,5 +1,5 @@
 ﻿using Application.Interfaces.Auth;
-using Domain.Common.Classes.User.Login;
+using Domain.Common.Classes.User.Auth;
 using Infrastructure.Services.Auth;
 using Microsoft.AspNetCore.Mvc;
 

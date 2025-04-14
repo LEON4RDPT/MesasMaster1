@@ -13,7 +13,7 @@ public class PostUserController(PostUserHandler handler) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<UserCreateResponse>> Post(UserCreateRequest request)
     {
-        var id = await _handler.Handle(request);
-        return Ok(id);
+        var token = await _handler.Handle(request);
+        return Ok(token);
     }
 }

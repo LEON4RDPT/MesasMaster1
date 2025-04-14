@@ -17,3 +17,4 @@ C:\Users\Angelica\Desktop\slaa\Mesas\Infrastructure\obj\Debug\net9.0\refint\Infr
 C:\Users\Angelica\Desktop\slaa\Mesas\Infrastructure\obj\Debug\net9.0\Infrastructure.pdb
 C:\Users\Angelica\Desktop\slaa\Mesas\Infrastructure\obj\Debug\net9.0\Infrastructure.genruntimeconfig.cache
 C:\Users\Angelica\Desktop\slaa\Mesas\Infrastructure\obj\Debug\net9.0\ref\Infrastructure.dll
+C:\Users\Angelica\Desktop\slaa\Mesas\Infrastructure\obj\Debug\net9.0\Infrastructure.sourcelink.json

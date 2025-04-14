@@ -1,4 +1,5 @@
 ﻿using Domain.Common.Classes;
+using Domain.Common.Classes.Shared;
 using Domain.Common.Classes.User.Delete;
 using Domain.Common.Interfaces;
 

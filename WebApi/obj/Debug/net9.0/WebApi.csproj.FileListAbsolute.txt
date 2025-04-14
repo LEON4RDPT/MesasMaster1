@@ -172,3 +172,5 @@ C:\Users\Angelica\Desktop\slaa\Mesas\WebApi\obj\Debug\net9.0\ref\WebApi.dll
 C:\Users\Angelica\Desktop\slaa\Mesas\WebApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Angelica\Desktop\slaa\Mesas\WebApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Angelica\Desktop\slaa\Mesas\WebApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Angelica\Desktop\slaa\Mesas\WebApi\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Angelica\Desktop\slaa\Mesas\WebApi\obj\Debug\net9.0\WebApi.sourcelink.json
