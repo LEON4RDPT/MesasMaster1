@@ -1,8 +1,4 @@
-﻿using Application.Exceptions;
-using Application.Exceptions.User;
-using Domain.Common.Classes;
-using Domain.Common.Classes.Shared;
-using Domain.Common.Classes.User.Get;
+﻿using Domain.Common.Classes.Shared;
 using Domain.Common.Classes.User.GetAll;
 using Infrastructure.Services.User;
 using Microsoft.AspNetCore.Authorization;
@@ -12,10 +8,11 @@ namespace WebApi.Controllers.User;
 
 [ApiController]
 [Route("/api/user")]
+[Tags("User")]
 public class GetAllUserController(GetAllUserHandler handler) : ControllerBase
 {
     private readonly GetAllUserHandler _handler = handler;
-    
+
     [HttpGet]
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<UserGetAllResponse>> Get()
@@ -23,6 +20,4 @@ public class GetAllUserController(GetAllUserHandler handler) : ControllerBase
         var response = await _handler.Handle(Unit.Value);
         return Ok(response.Users);
     }
-    
-   
 }

@@ -1,7 +1,6 @@
 ﻿using Application.Exceptions.Shared;
 using Application.Exceptions.User;
 using Application.Interfaces.User;
-using Domain.Common.Classes;
 using Domain.Common.Classes.Shared;
 using Domain.Common.Classes.User.Delete;
 using Infrastructure.Data;
@@ -15,9 +14,9 @@ public class DeleteUserHandler(ApplicationDbContext context) : IDeleteUser
 
     public async Task<Unit> Handle(UserDeleteRequest request)
     {
-        if (request.Id == 0) { throw new MissingAttributeException(nameof(request.Id)); }
+        if (request.Id == 0) throw new MissingAttributeException(nameof(request.Id));
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == request.Id);
-        if (user == null) {throw new UserNotFoundException(request.Id);}
+        if (user == null) throw new UserNotFoundException(request.Id);
 
         user.IsActive = false;
         _context.Users.Update(user);

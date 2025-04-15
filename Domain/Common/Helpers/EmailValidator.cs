@@ -8,7 +8,7 @@ public class EmailValidator
     {
         if (string.IsNullOrEmpty(email))
             return false;
-        
+
         const string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
         var regex = new Regex(emailPattern);
 

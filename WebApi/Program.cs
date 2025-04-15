@@ -29,6 +29,7 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1",
         Description = "API for managing users in the MesasMaster system."
     });
+
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",

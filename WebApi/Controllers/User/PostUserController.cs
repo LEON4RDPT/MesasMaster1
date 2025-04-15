@@ -6,10 +6,11 @@ namespace WebApi.Controllers.User;
 
 [ApiController]
 [Route("/api/user")]
+[Tags("User")]
 public class PostUserController(PostUserHandler handler) : ControllerBase
 {
     private readonly PostUserHandler _handler = handler;
-    
+
     [HttpPost]
     public async Task<ActionResult<UserCreateResponse>> Post(UserCreateRequest request)
     {

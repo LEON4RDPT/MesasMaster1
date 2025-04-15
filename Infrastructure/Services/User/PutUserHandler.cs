@@ -1,7 +1,6 @@
 ﻿using Application.Exceptions.Shared;
 using Application.Exceptions.User;
 using Application.Interfaces.User;
-using Domain.Common.Classes;
 using Domain.Common.Classes.Shared;
 using Domain.Common.Classes.User.Put;
 using Infrastructure.Data;
@@ -16,13 +15,13 @@ public class PutUserHandler(ApplicationDbContext context) : IPutUser
     public async Task<Unit> Handle(UserPutRequest request)
     {
         var userId = request.Id;
-        if (userId == 0) 
+        if (userId == 0)
             throw new MissingAttributeException(nameof(userId));
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
         if (user == null)
             throw new UserNotFoundException(userId);
-        
-        if (user.Email != request.Email && !string.IsNullOrEmpty(request.Email)) 
+
+        if (user.Email != request.Email && !string.IsNullOrEmpty(request.Email))
             user.Email = request.Email;
         if (user.Name != request.Name && !string.IsNullOrEmpty(request.Name))
             user.Name = request.Name;

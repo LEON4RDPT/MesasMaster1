@@ -11,7 +11,7 @@ namespace Infrastructure.Services.Auth;
 public class PostAuthHandler(ApplicationDbContext context, IGenerateToken tokenGenerator) : ILoginUser
 {
     private readonly ApplicationDbContext _context = context;
-    
+
     public async Task<LoginUserResponse> Handle(LoginUserRequest request)
     {
         var email = request.Email;
@@ -22,7 +22,7 @@ public class PostAuthHandler(ApplicationDbContext context, IGenerateToken tokenG
 
         if (string.IsNullOrEmpty(password))
             throw new MissingAttributeException(nameof(request.Password));
-        
+
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         if (user is null)
             throw new EmailNotFoundException(email);
@@ -34,13 +34,12 @@ public class PostAuthHandler(ApplicationDbContext context, IGenerateToken tokenG
         {
             Id = user.Id,
             Name = user.Name,
-            IsAdmin = user.IsAdmin,
+            IsAdmin = user.IsAdmin
         });
 
         return new LoginUserResponse
         {
-            Token = token,
+            Token = token
         };
-
     }
 }

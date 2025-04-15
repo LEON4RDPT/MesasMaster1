@@ -4,8 +4,9 @@ using System.Text;
 using Application.Exceptions.Shared;
 using Application.Interfaces.Auth;
 using Domain.Common.Classes.Jwt;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+
 namespace Infrastructure.Services.Auth;
 
 public class GenerateToken(IConfiguration configuration) : IGenerateToken
@@ -16,9 +17,9 @@ public class GenerateToken(IConfiguration configuration) : IGenerateToken
 
         var claims = new List<Claim>
         {
-            new Claim(ClaimTypes.Name, user.Name),
-            new Claim("UserId", user.Id.ToString()),
-            new Claim(ClaimTypes.Role, user.IsAdmin ? "Admin" : "User")
+            new(ClaimTypes.Name, user.Name),
+            new("UserId", user.Id.ToString()),
+            new(ClaimTypes.Role, user.IsAdmin ? "Admin" : "User")
         };
 
         var tokenDescriptor = new SecurityTokenDescriptor

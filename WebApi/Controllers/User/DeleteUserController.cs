@@ -8,7 +8,7 @@ namespace WebApi.Controllers.User;
 [ApiController]
 [Route("/api/user")]
 [Authorize]
-
+[Tags("User")]
 public class DeleteUserController(DeleteUserHandler handler) : ControllerBase
 {
     private readonly DeleteUserHandler _handler = handler;

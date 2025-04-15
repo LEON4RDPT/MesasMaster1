@@ -1,5 +1,4 @@
-﻿using Domain.Common.Classes;
-using Domain.Common.Classes.Shared;
+﻿using Domain.Common.Classes.Shared;
 using Domain.Common.Classes.User.GetAll;
 using Domain.Common.Interfaces;
 
