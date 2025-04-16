@@ -14,7 +14,7 @@ namespace WebApi.Controllers.Reserva;
 
 public class GetAllReservaController(GetAllReservaHandler handler) : ControllerBase
 {
-    private readonly GetAllReservaHandler _handler;
+    private readonly GetAllReservaHandler _handler = handler;
     
     [HttpGet]
     public async Task<ActionResult<ReservaGetAllResponse>> Get()
