@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces.Auth;
 using Infrastructure.Services.Auth;
 using Infrastructure.Services.Mesa;
+using Infrastructure.Services.Reserva;
 using Infrastructure.Services.User;
 using PostUserHandler = Infrastructure.Services.User.PostUserHandler;
 
@@ -28,6 +29,11 @@ public static class DependencyInjection
         services.AddScoped<GetAllMesaHandler>();
         services.AddScoped<DeleteMesaHandler>();
         services.AddScoped<PutMesaHandler>();
+        
+        //reservas
+        
+        services.AddScoped<PostReservaHandler>();
+        
         return services;
     }
 

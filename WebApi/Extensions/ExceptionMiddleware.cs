@@ -14,6 +14,11 @@ public class CustomExceptionMiddleware(RequestDelegate next)
         {
             await next(httpContext);
         }
+        catch (MesaAlreadyAtUseException ex)
+        {
+            httpContext.Response.StatusCode = (int)HttpStatusCode.Conflict;
+            await httpContext.Response.WriteAsJsonAsync(new { message = ex.Message });
+        }
         catch (InvalidDateException ex)
         {
             httpContext.Response.StatusCode = (int)HttpStatusCode.Conflict;
