@@ -35,6 +35,8 @@ public static class DependencyInjection
         services.AddScoped<PostReservaHandler>();
         services.AddScoped<PutMesaHandler>();
         services.AddScoped<DeleteReservaHandler>();
+        services.AddScoped<GetReservaHandler>();
+        services.AddScoped<GetAllReservaHandler>();
         return services;
     }
 
