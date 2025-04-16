@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using Application.Exceptions.Mesa;
+using Application.Exceptions.Reserva;
 using Application.Exceptions.Shared;
 using Application.Exceptions.User;
 
@@ -12,6 +13,16 @@ public class CustomExceptionMiddleware(RequestDelegate next)
         try
         {
             await next(httpContext);
+        }
+        catch (InvalidDateException ex)
+        {
+            httpContext.Response.StatusCode = (int)HttpStatusCode.Conflict;
+            await httpContext.Response.WriteAsJsonAsync(new { message = ex.Message });
+        }
+        catch (ReservaNotFoundException ex)
+        {
+            httpContext.Response.StatusCode = (int)HttpStatusCode.NotFound;
+            await httpContext.Response.WriteAsJsonAsync(new { message = ex.Message });
         }
         catch (MesaNotFoundException ex)
         {
