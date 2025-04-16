@@ -1,0 +1,69 @@
+## Build Folders ##
+bin/
+obj/
+
+## Rider ##
+.idea/
+
+## VS Code ##
+.vscode/
+
+## Visual Studio ##
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## NuGet Packages ##
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+
+## Logs ##
+*.log
+
+## Test Results ##
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+## Coverage Reports ##
+coverage/
+coverage*.json
+lcov.info
+
+## Publish Output ##
+publish/
+out/
+
+## ASP.NET Secrets ##
+secrets.json
+*.pfx
+*.key
+
+## Configuration Files ##
+appsettings.*.json
+appsettings.Development.json
+appsettings.Local.json
+
+# Optional: keep the default appsettings.json tracked
+# !appsettings.json
+
+## Environment Files ##
+.env
+.env.*
+
+## Resharper ##
+_ReSharper*/
+*.DotSettings.user
+
+## Mac OS and Linux junk ##
+.DS_Store
+*.swp
+
+## Clean Architecture Layer Specific (if needed) ##
+**/Infrastructure/**/Migrations/
+
