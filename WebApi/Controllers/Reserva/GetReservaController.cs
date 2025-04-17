@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApi.Controllers.Reserva;
 
 [ApiController]
-[Route("/api/mesa")]
+[Route("/api/reserva")]
 [Authorize]
 [Tags("Reserva")]
 public class GetReservaController(GetReservaHandler handler) : ControllerBase
