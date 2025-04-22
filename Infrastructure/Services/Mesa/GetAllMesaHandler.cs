@@ -15,14 +15,14 @@ public class GetAllMesaHandler(ApplicationDbContext context) : IGetAllMesa
     {
         var mesas = await _context.Mesas
             .AsNoTracking()
-            .Where(m => m.IsActive)
             .Select(m => new MesaGetResponse
             {
                 Id = m.Id,
                 LocalX = m.LocalX,
                 LocalY = m.LocalY,
                 CapUsers = m.CapUsers,
-                TimeLimit = m.TimeLimit
+                TimeLimit = m.TimeLimit,
+                Ativo = m.IsActive
             }).ToListAsync();
 
         return new MesaGetAllResponse

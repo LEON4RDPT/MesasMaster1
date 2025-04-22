@@ -16,7 +16,7 @@ public class GetMesaHandler(ApplicationDbContext context) : IGetMesa
         if (request.Id == 0)
             throw new MissingAttributeException(nameof(request.Id));
 
-        var mesa = await _context.Mesas.FirstOrDefaultAsync(m => m.Id == request.Id && m.IsActive);
+        var mesa = await _context.Mesas.FirstOrDefaultAsync(m => m.Id == request.Id);
 
         if (mesa == null)
             throw new MesaNotFoundException(request.Id);
@@ -27,7 +27,8 @@ public class GetMesaHandler(ApplicationDbContext context) : IGetMesa
             CapUsers = mesa.CapUsers,
             TimeLimit = mesa.TimeLimit,
             LocalX = mesa.LocalX,
-            LocalY = mesa.LocalY
+            LocalY = mesa.LocalY,
+            Ativo = mesa.IsActive
         };
     }
 }

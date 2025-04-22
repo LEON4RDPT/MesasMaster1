@@ -9,4 +9,5 @@ public class MesaGetResponse : IResponse
     public required int LocalX { get; set; }
     public required int LocalY { get; set; }
     public required int CapUsers { get; set; }
+    public bool Ativo { get; set; }
 }

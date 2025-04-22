@@ -12,6 +12,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices();
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "Angular",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200") // Angular dev server
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials(); // If you're using cookies or Authorization header
+        });
+});
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
@@ -94,5 +107,5 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.UseCors("Angular");
 app.Run();
