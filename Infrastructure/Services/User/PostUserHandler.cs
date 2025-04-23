@@ -6,6 +6,7 @@ using Domain.Common.Classes.Jwt;
 using Domain.Common.Classes.User.Create;
 using Domain.Common.Helpers;
 using Infrastructure.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Services.User;
 
@@ -13,6 +14,7 @@ public class PostUserHandler(ApplicationDbContext context, IGenerateToken genera
 {
     private readonly ApplicationDbContext _context = context;
     private readonly IGenerateToken _generateToken = generateToken;
+    private readonly PasswordHasher<Domain.Entities.User> _passwordHasher = new();
 
     public async Task<UserCreateResponse> Handle(UserCreateRequest request)
     {
@@ -38,8 +40,9 @@ public class PostUserHandler(ApplicationDbContext context, IGenerateToken genera
             IsActive = true,
             IsAdmin = false,
             Name = request.Name,
-            Password = request.Password
+            Password = string.Empty,
         };
+        user.Password = _passwordHasher.HashPassword(user, request.Password);
 
         var newUser = _context.Users.Add(user);
         await _context.SaveChangesAsync();

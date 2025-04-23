@@ -5,13 +5,14 @@ using Domain.Common.Classes.Shared;
 using Domain.Common.Classes.User.Put;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Services.User;
 
 public class PutUserHandler(ApplicationDbContext context) : IPutUser
 {
     private readonly ApplicationDbContext _context = context;
-
+    private readonly PasswordHasher<Domain.Entities.User> _passwordHasher = new();
     public async Task<Unit> Handle(UserPutRequest request)
     {
         var userId = request.Id;
@@ -25,8 +26,8 @@ public class PutUserHandler(ApplicationDbContext context) : IPutUser
             user.Email = request.Email;
         if (user.Name != request.Name && !string.IsNullOrEmpty(request.Name))
             user.Name = request.Name;
-        if (user.Password != request.Password && !string.IsNullOrEmpty(request.Password))
-            user.Password = request.Password;
+        if (!string.IsNullOrEmpty(request.Password))
+            user.Password = _passwordHasher.HashPassword(user, request.Password);
         if (user.IsAdmin != request.IsAdmin)
             user.IsAdmin = request.IsAdmin;
         _context.Users.Update(user);
