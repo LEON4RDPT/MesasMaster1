@@ -13,7 +13,7 @@ public class GetUserController(GetUserHandler handler) : ControllerBase
     private readonly GetUserHandler _handler = handler;
 
     [HttpGet("{id}")]
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public async Task<ActionResult<UserGetResponse>> Get(int id)
     {
         var user = await _handler.Handle(new UserGetRequest { Id = id });

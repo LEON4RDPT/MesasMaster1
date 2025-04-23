@@ -92,6 +92,7 @@ builder.Services.AddAuthentication(options =>
 
 
 var app = builder.Build();
+app.UseCors("Angular");
 app.UseMiddleware<CustomExceptionMiddleware>();
 
 //SWAGGER
@@ -107,5 +108,4 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-app.UseCors("Angular");
 app.Run();
