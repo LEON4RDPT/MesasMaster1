@@ -17,7 +17,7 @@ public class PostReservaController(PostReservaHandler handler) : ControllerBase
     private readonly PostReservaHandler _handler = handler;
     
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public async Task<IActionResult> Post(ReservaPostRequest request)
     {
         await _handler.Handle(request);

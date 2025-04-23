@@ -40,6 +40,7 @@ public static class DependencyInjection
         services.AddScoped<GetReservaDiaHandler>();
         services.AddScoped<GetReservaSemanaHandler>();
         services.AddScoped<GetReservaMesHandler>();
+        services.AddScoped<GetReservaUserHandler>();
         return services;
     }
 

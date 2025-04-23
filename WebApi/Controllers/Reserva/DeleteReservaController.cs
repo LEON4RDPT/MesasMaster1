@@ -13,7 +13,6 @@ public class DeleteReservaController(DeleteReservaHandler handler) : ControllerB
 {
     private readonly DeleteReservaHandler _handler = handler;
     
-    [Authorize(Roles = "Admin")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> Post(int id)
     {
