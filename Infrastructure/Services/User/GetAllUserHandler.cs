@@ -1,7 +1,7 @@
 ﻿using Application.Interfaces.User;
-using Domain.Common.Classes.Shared;
-using Domain.Common.Classes.User.Get;
-using Domain.Common.Classes.User.GetAll;
+using Application.UseCases.Shared;
+using Application.UseCases.User.Get;
+using Application.UseCases.User.GetAll;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 

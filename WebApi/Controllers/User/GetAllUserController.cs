@@ -1,5 +1,5 @@
-﻿using Domain.Common.Classes.Shared;
-using Domain.Common.Classes.User.GetAll;
+﻿using Application.UseCases.Shared;
+using Application.UseCases.User.GetAll;
 using Infrastructure.Services.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

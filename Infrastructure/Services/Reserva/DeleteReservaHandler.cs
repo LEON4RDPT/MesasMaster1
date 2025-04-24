@@ -1,7 +1,7 @@
-using Application.Exceptions.Reserva;
 using Application.Interfaces.Reserva;
-using Domain.Common.Classes.Reserva.Delete;
-using Domain.Common.Classes.Shared;
+using Application.UseCases.Reserva.Delete;
+using Application.UseCases.Shared;
+using Domain.Exceptions.Reserva;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 

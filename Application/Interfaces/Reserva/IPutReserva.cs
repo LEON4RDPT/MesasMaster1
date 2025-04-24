@@ -1,6 +1,5 @@
-﻿using Domain.Common.Classes.Reserva.Put;
-using Domain.Common.Classes.Shared;
-using Domain.Common.Interfaces;
+﻿using Application.UseCases.Reserva.Put;
+using Application.UseCases.Shared;
 
 namespace Application.Interfaces.Reserva;
 

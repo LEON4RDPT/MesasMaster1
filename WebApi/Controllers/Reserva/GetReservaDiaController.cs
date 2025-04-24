@@ -1,6 +1,5 @@
-﻿using Domain.Common.Classes.Reserva.Get;
-using Domain.Common.Classes.Reserva.GetAll;
-using Domain.Common.Classes.Shared;
+﻿using Application.UseCases.Reserva.GetAll;
+using Application.UseCases.Shared;
 using Infrastructure.Services.Reserva;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

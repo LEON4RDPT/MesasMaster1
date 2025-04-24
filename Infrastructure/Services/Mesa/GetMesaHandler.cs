@@ -1,7 +1,7 @@
-﻿using Application.Exceptions.Mesa;
-using Application.Exceptions.Shared;
-using Application.Interfaces.Mesa;
-using Domain.Common.Classes.Mesa.Get;
+﻿using Application.Interfaces.Mesa;
+using Application.UseCases.Mesa.Get;
+using Domain.Exceptions.Mesa;
+using Domain.Exceptions.Shared;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 

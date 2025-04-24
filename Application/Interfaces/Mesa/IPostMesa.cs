@@ -1,6 +1,4 @@
-﻿using Domain.Common.Classes.Mesa.Create;
-using Domain.Common.Classes.Mesas.Create;
-using Domain.Common.Interfaces;
+﻿using Application.UseCases.Mesa.Create;
 
 namespace Application.Interfaces.Mesa;
 

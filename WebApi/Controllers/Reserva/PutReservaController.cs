@@ -1,7 +1,5 @@
 ﻿using Application.Interfaces.Reserva;
-using Domain.Common.Classes.Reserva.Post;
-using Domain.Common.Classes.Reserva.Put;
-using Domain.Common.Classes.Shared;
+using Application.UseCases.Reserva.Put;
 using Infrastructure.Services.Reserva;
 using Infrastructure.Services.User;
 using Microsoft.AspNetCore.Authorization;
@@ -19,7 +17,7 @@ public class PutReservaController(PutReservaHandler handler) : ControllerBase
     
     [HttpPut]
     [Authorize(Roles = "Admin")]
-    public async Task<IActionResult> Post(ReservaPutRequest request)
+    public async Task<IActionResult> Put(ReservaPutRequest request)
     {
         await _handler.Handle(request);
         return Ok();

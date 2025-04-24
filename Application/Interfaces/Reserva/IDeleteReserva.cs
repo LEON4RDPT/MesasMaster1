@@ -1,6 +1,5 @@
-﻿using Domain.Common.Classes.Reserva.Delete;
-using Domain.Common.Classes.Shared;
-using Domain.Common.Interfaces;
+﻿using Application.UseCases.Reserva.Delete;
+using Application.UseCases.Shared;
 
 namespace Application.Interfaces.Reserva;
 

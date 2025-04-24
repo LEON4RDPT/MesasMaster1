@@ -1,4 +1,4 @@
-﻿using Domain.Common.Classes.User.Put;
+﻿using Application.UseCases.User.Put;
 using Infrastructure.Services.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -1,7 +1,7 @@
 ﻿using Application.Interfaces.Reserva;
-using Domain.Common.Classes.Reserva.Get;
-using Domain.Common.Classes.Reserva.GetAll;
-using Domain.Common.Classes.Shared;
+using Application.UseCases.Reserva.Get;
+using Application.UseCases.Reserva.GetAll;
+using Application.UseCases.Shared;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 

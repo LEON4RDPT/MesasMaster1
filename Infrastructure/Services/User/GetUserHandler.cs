@@ -1,7 +1,7 @@
-﻿using Application.Exceptions.Shared;
-using Application.Exceptions.User;
-using Application.Interfaces.User;
-using Domain.Common.Classes.User.Get;
+﻿using Application.Interfaces.User;
+using Application.UseCases.User.Get;
+using Domain.Exceptions.Shared;
+using Domain.Exceptions.User;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 

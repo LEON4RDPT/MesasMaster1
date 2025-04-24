@@ -1,6 +1,5 @@
-﻿using Domain.Common.Classes.Mesa.Delete;
-using Domain.Common.Classes.Shared;
-using Domain.Common.Interfaces;
+﻿using Application.UseCases.Mesa.Delete;
+using Application.UseCases.Shared;
 
 namespace Application.Interfaces.Mesa;
 

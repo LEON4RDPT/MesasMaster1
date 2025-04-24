@@ -1,6 +1,5 @@
-﻿using Domain.Common.Classes.Mesa.GetAll;
-using Domain.Common.Classes.Shared;
-using Domain.Common.Interfaces;
+﻿using Application.UseCases.Mesa.GetAll;
+using Application.UseCases.Shared;
 
 namespace Application.Interfaces.Mesa;
 

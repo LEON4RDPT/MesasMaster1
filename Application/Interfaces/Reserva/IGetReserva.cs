@@ -1,5 +1,4 @@
-﻿using Domain.Common.Classes.Reserva.Get;
-using Domain.Common.Interfaces;
+﻿using Application.UseCases.Reserva.Get;
 
 namespace Application.Interfaces.Reserva;
 

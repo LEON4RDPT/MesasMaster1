@@ -1,8 +1,8 @@
-﻿    using Application.Exceptions.Shared;
-    using Application.Exceptions.User;
-    using Application.Interfaces.Auth;
-    using Domain.Common.Classes.Jwt;
-    using Domain.Common.Classes.User.Auth;
+﻿using Application.Interfaces.Auth;
+using Application.UseCases.Jwt;
+using Application.UseCases.User.Auth;
+using Domain.Exceptions.Shared;
+    using Domain.Exceptions.User;
     using Infrastructure.Data;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.AspNetCore.Identity;

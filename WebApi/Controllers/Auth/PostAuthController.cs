@@ -1,4 +1,4 @@
-﻿using Domain.Common.Classes.User.Auth;
+﻿using Application.UseCases.User.Auth;
 using Infrastructure.Services.Auth;
 using Microsoft.AspNetCore.Mvc;
 

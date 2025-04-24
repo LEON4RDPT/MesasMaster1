@@ -1,5 +1,4 @@
-﻿using Domain.Common.Classes.Mesa.Get;
-using Domain.Common.Interfaces;
+﻿using Application.UseCases.Mesa.Get;
 
 namespace Application.Interfaces.Mesa;
 

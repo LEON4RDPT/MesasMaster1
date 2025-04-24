@@ -1,5 +1,5 @@
-﻿using Domain.Common.Classes.Mesa.Delete;
-using Domain.Common.Classes.Mesa.Get;
+﻿using Application.UseCases.Mesa.Delete;
+using Application.UseCases.Mesa.Get;
 using Infrastructure.Services.Mesa;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

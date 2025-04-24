@@ -1,4 +1,3 @@
-using Domain.Common.Classes.Reserva.Get;
 using Infrastructure.Services.Reserva;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

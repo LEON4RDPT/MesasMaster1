@@ -1,6 +1,5 @@
-﻿using Domain.Common.Classes.Mesa.Put;
-using Domain.Common.Classes.Shared;
-using Domain.Common.Interfaces;
+﻿using Application.UseCases.Mesa.Put;
+using Application.UseCases.Shared;
 
 namespace Application.Interfaces.Mesa;
 

@@ -1,11 +1,11 @@
-﻿using Application.Exceptions.Shared;
-using Application.Exceptions.User;
-using Application.Interfaces.Auth;
+﻿using Application.Interfaces.Auth;
 using Application.Interfaces.User;
-using Domain.Common.Classes.Jwt;
-using Domain.Common.Classes.User.Create;
-using Domain.Common.Helpers;
+using Application.UseCases.Jwt;
+using Application.UseCases.User.Create;
+using Domain.Exceptions.Shared;
+using Domain.Exceptions.User;
 using Infrastructure.Data;
+using Infrastructure.Services.Helpers;
 using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Services.User;

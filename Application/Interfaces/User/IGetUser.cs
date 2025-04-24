@@ -1,5 +1,4 @@
-﻿using Domain.Common.Classes.User.Get;
-using Domain.Common.Interfaces;
+﻿using Application.UseCases.User.Get;
 
 namespace Application.Interfaces.User;
 

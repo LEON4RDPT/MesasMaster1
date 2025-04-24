@@ -1,5 +1,5 @@
-﻿using Domain.Common.Classes.Mesa.GetAll;
-using Domain.Common.Classes.Shared;
+﻿using Application.UseCases.Mesa.GetAll;
+using Application.UseCases.Shared;
 using Infrastructure.Services.Mesa;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

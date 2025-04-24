@@ -1,4 +1,4 @@
-﻿using Domain.Common.Classes.Jwt;
+﻿using Application.UseCases.Jwt;
 
 namespace Application.Interfaces.Auth;
 

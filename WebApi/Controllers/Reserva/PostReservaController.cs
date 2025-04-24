@@ -1,6 +1,5 @@
 ﻿using Application.Interfaces.Reserva;
-using Domain.Common.Classes.Reserva.Post;
-using Domain.Common.Classes.Shared;
+using Application.UseCases.Reserva.Post;
 using Infrastructure.Services.Reserva;
 using Infrastructure.Services.User;
 using Microsoft.AspNetCore.Authorization;

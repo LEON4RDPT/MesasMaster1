@@ -1,5 +1,4 @@
-﻿using Domain.Common.Classes.Mesa.Create;
-using Domain.Common.Classes.Mesas.Create;
+﻿using Application.UseCases.Mesa.Create;
 using Infrastructure.Services.Mesa;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

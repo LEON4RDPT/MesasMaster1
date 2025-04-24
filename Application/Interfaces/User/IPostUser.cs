@@ -1,5 +1,4 @@
-﻿using Domain.Common.Classes.User.Create;
-using Domain.Common.Interfaces;
+﻿using Application.UseCases.User.Create;
 
 namespace Application.Interfaces.User;
 

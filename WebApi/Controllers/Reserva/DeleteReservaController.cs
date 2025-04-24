@@ -1,4 +1,4 @@
-﻿using Domain.Common.Classes.Reserva.Delete;
+﻿using Application.UseCases.Reserva.Delete;
 using Infrastructure.Services.Reserva;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

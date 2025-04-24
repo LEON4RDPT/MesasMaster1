@@ -1,8 +1,8 @@
-﻿using Application.Exceptions.Mesa;
-using Application.Exceptions.Shared;
-using Application.Interfaces.Mesa;
-using Domain.Common.Classes.Mesa.Delete;
-using Domain.Common.Classes.Shared;
+﻿using Application.Interfaces.Mesa;
+using Application.UseCases.Mesa.Delete;
+using Application.UseCases.Shared;
+using Domain.Exceptions.Mesa;
+using Domain.Exceptions.Shared;
 using Infrastructure.Data;
 
 namespace Infrastructure.Services.Mesa;

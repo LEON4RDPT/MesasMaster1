@@ -1,5 +1,5 @@
 using System.Text;
-using Application.Exceptions.Shared;
+using Domain.Exceptions.Shared;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;

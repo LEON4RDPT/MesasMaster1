@@ -1,7 +1,7 @@
 ﻿using Application.Interfaces.Mesa;
-using Domain.Common.Classes.Mesa.Get;
-using Domain.Common.Classes.Mesa.GetAll;
-using Domain.Common.Classes.Shared;
+using Application.UseCases.Mesa.Get;
+using Application.UseCases.Mesa.GetAll;
+using Application.UseCases.Shared;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 

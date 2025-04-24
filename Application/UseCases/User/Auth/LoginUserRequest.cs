@@ -1,0 +1,9 @@
+﻿using Application.Interfaces;
+
+namespace Application.UseCases.User.Auth;
+
+public class LoginUserRequest : IRequest
+{
+    public required string Email { get; set; }
+    public required string Password { get; set; }
+}

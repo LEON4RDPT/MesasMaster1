@@ -1,4 +1,4 @@
-﻿using Domain.Common.Classes.User.Delete;
+﻿using Application.UseCases.User.Delete;
 using Infrastructure.Services.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

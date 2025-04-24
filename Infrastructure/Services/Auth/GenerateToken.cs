@@ -1,9 +1,9 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Application.Exceptions.Shared;
 using Application.Interfaces.Auth;
-using Domain.Common.Classes.Jwt;
+using Application.UseCases.Jwt;
+using Domain.Exceptions.Shared;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 

@@ -1,8 +1,8 @@
 ﻿using System.Net;
-using Application.Exceptions.Mesa;
-using Application.Exceptions.Reserva;
-using Application.Exceptions.Shared;
-using Application.Exceptions.User;
+using Domain.Exceptions.Mesa;
+using Domain.Exceptions.Reserva;
+using Domain.Exceptions.Shared;
+using Domain.Exceptions.User;
 
 namespace WebApi.Extensions;
 

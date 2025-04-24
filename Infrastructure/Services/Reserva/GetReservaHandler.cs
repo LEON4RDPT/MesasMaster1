@@ -1,5 +1,5 @@
 using Application.Interfaces.Reserva;
-using Domain.Common.Classes.Reserva.Get;
+using Application.UseCases.Reserva.Get;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,8 +1,8 @@
-using Application.Exceptions.Mesa;
-using Application.Exceptions.Reserva;
 using Application.Interfaces.Reserva;
-using Domain.Common.Classes.Reserva.Put;
-using Domain.Common.Classes.Shared;
+using Application.UseCases.Reserva.Put;
+using Application.UseCases.Shared;
+using Domain.Exceptions.Mesa;
+using Domain.Exceptions.Reserva;
 using Infrastructure.Data;
 using Infrastructure.Services.Mesa;
 using Microsoft.EntityFrameworkCore;

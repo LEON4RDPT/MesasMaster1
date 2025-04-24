@@ -1,4 +1,4 @@
-﻿using Domain.Common.Classes.User.Create;
+﻿using Application.UseCases.User.Create;
 using Infrastructure.Services.User;
 using Microsoft.AspNetCore.Mvc;
 

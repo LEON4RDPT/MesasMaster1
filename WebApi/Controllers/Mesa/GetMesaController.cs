@@ -1,4 +1,4 @@
-﻿using Domain.Common.Classes.Mesa.Get;
+﻿using Application.UseCases.Mesa.Get;
 using Infrastructure.Services.Mesa;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

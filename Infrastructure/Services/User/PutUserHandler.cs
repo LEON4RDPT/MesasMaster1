@@ -1,8 +1,8 @@
-﻿using Application.Exceptions.Shared;
-using Application.Exceptions.User;
-using Application.Interfaces.User;
-using Domain.Common.Classes.Shared;
-using Domain.Common.Classes.User.Put;
+﻿using Application.Interfaces.User;
+using Application.UseCases.Shared;
+using Application.UseCases.User.Put;
+using Domain.Exceptions.Shared;
+using Domain.Exceptions.User;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;

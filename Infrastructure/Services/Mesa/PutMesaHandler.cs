@@ -1,8 +1,8 @@
-﻿using Application.Exceptions.Mesa;
-using Application.Exceptions.Shared;
-using Application.Interfaces.Mesa;
-using Domain.Common.Classes.Mesa.Put;
-using Domain.Common.Classes.Shared;
+﻿using Application.Interfaces.Mesa;
+using Application.UseCases.Mesa.Put;
+using Application.UseCases.Shared;
+using Domain.Exceptions.Mesa;
+using Domain.Exceptions.Shared;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,7 +36,10 @@ public class PutMesaHandler(ApplicationDbContext context) : IPutMesa
         
         if (localY != mesa.LocalY)
             mesa.LocalY = localY;
-
+        
+        if (request.Ativo.HasValue)
+            mesa.IsActive = request.Ativo.Value;
+        
         if (request.CapUsers != 0)
         {
             mesa.CapUsers = request.CapUsers;

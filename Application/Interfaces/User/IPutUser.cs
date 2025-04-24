@@ -1,6 +1,5 @@
-﻿using Domain.Common.Classes.Shared;
-using Domain.Common.Classes.User.Put;
-using Domain.Common.Interfaces;
+﻿using Application.UseCases.Shared;
+using Application.UseCases.User.Put;
 
 namespace Application.Interfaces.User;
 

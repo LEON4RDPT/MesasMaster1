@@ -1,6 +1,5 @@
-﻿using Domain.Common.Classes.Shared;
-using Domain.Common.Classes.User.Delete;
-using Domain.Common.Interfaces;
+﻿using Application.UseCases.Shared;
+using Application.UseCases.User.Delete;
 
 namespace Application.Interfaces.User;
 

@@ -1,4 +1,4 @@
-﻿using Domain.Common.Classes.User.Get;
+﻿using Application.UseCases.User.Get;
 using Infrastructure.Services.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
