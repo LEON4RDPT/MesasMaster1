@@ -16,7 +16,7 @@ public class GetUserHandler(ApplicationDbContext context) : IGetUser
         if (request.Id == 0) throw new MissingAttributeException(nameof(request.Id));
 
         var id = request.Id;
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id && u.IsActive);
         if (user == null) throw new UserNotFoundException(id);
 
         return new UserGetResponse

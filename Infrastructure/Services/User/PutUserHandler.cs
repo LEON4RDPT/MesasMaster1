@@ -18,7 +18,7 @@ public class PutUserHandler(ApplicationDbContext context) : IPutUser
         var userId = request.Id;
         if (userId == 0)
             throw new MissingAttributeException(nameof(userId));
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId && u.IsActive);
         if (user == null)
             throw new UserNotFoundException(userId);
 

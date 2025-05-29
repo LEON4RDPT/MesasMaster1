@@ -15,7 +15,7 @@ public class DeleteUserHandler(ApplicationDbContext context) : IDeleteUser
     public async Task<Unit> Handle(UserDeleteRequest request)
     {
         if (request.Id == 0) throw new MissingAttributeException(nameof(request.Id));
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == request.Id);
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == request.Id && u.IsActive);
         if (user == null) throw new UserNotFoundException(request.Id);
 
         user.IsActive = false;
