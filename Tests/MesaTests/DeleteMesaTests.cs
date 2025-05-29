@@ -1,25 +1,26 @@
-﻿using Application.UseCases.Mesa.Get;
+﻿using Application.UseCases.Mesa.Delete;
+using Application.UseCases.Shared;
 using Domain.Entities;
 using Domain.Exceptions.Mesa;
+using Domain.Exceptions.Shared;
 using Infrastructure.Data;
 using Infrastructure.Services.Mesa;
 using Microsoft.EntityFrameworkCore;
 
 namespace Tests.MesaTests;
 
-public class GetMesaTests
+public class DeleteMesaTests
 {
     private readonly ApplicationDbContext _context;
-    private readonly GetMesaHandler _handler;
+    private readonly DeleteMesaHandler _handler;
 
-    public GetMesaTests()
+    public DeleteMesaTests()
     {
         var options = new DbContextOptionsBuilder<ApplicationDbContext>()
             .UseInMemoryDatabase(Guid.NewGuid().ToString())
             .Options;
-        
         _context = new ApplicationDbContext(options);
-        _handler = new GetMesaHandler(_context);
+        _handler = new DeleteMesaHandler(_context);
     }
 
     private async Task<int> AddTestMesa()
@@ -36,7 +37,7 @@ public class GetMesaTests
         await _context.SaveChangesAsync();
         return mesa.Id;
     }
-    
+
     private async Task<int> AddTestMesaInactive()
     {
         var mesa = new Mesa
@@ -53,38 +54,30 @@ public class GetMesaTests
     }
 
     [Fact]
-    public async Task Should_Get_Mesa()
+    public async Task Should_Delete_Mesa()
     {
-        var mesaId = await AddTestMesa();
-        var response = await _handler.Handle(new MesaGetRequest{Id = mesaId});
-        Assert.IsType<MesaGetResponse>(response);
+        var mesa = await AddTestMesa();
+        var response = await _handler.Handle(new MesaDeleteRequest{ Id = mesa });
+        Assert.Equal(response, Unit.Value);
     }
     
     [Fact]
-    public async Task Should_Get_Mesa_Even_If_Inactive()
+    public async Task Should_Throw_If_Mesa_Is_Inactive()
     {
-        var mesaId = await AddTestMesaInactive();
-        var response = await _handler.Handle(new MesaGetRequest{Id = mesaId});
-        Assert.IsType<MesaGetResponse>(response);
-    }
-    
-    [Fact]
-    public async Task Should_Throw_If_Not_Found()
-    {
-        await Assert.ThrowsAsync<MesaNotFoundException>(() => _handler.Handle(new MesaGetRequest{Id = 2}));
-    }
-    
-    [Fact]
-    public async Task Should_Throw_If_Invalid_Request()
-    {
-        await Assert.ThrowsAsync<NullReferenceException>(() => _handler.Handle(null));
+        var mesa = await AddTestMesaInactive();
+        await Assert.ThrowsAsync<MesaNotFoundException>(() =>  _handler.Handle(new MesaDeleteRequest{ Id = mesa }));
     }
 
     [Fact]
-    public async Task Should_Mesa_Type_Match()
+    public async Task Should_Throw_If_Mesa_Not_Exists()
     {
-        var mesaId = await AddTestMesa();
-        var response = await _handler.Handle(new MesaGetRequest{Id = mesaId});
-        Assert.IsType<MesaGetResponse>(response);
+        await Assert.ThrowsAsync<MesaNotFoundException>(() =>  _handler.Handle(new MesaDeleteRequest{ Id = 1 }));
+    }
+
+    [Fact]
+    public async Task Should_Throw_If_Invalid_Request()
+    {
+        await Assert.ThrowsAsync<MissingAttributeException>(() => _handler.Handle(new MesaDeleteRequest { Id = 0 }));
+        await Assert.ThrowsAsync<NullReferenceException>(() => _handler.Handle(null));
     }
 }
