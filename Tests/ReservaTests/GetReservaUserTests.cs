@@ -124,5 +124,33 @@ public class GetReservaUserTests
 
         Assert.Empty(response.Reservas);
     }
+
+    [Fact]
+    private async Task Should_Return_Empty_When_User_Has_Only_Past_Reservas()
+    {
+        var testUser1 = await AddTestUser(true);
+        var testMesa = await AddTestMesa(1, 120, true);
+        
+        var user = await _context.Users.FirstAsync(u => u.Id == testUser1);
+        var mesa = await _context.Mesas.FirstAsync(m => m.Id == testMesa);
+
+        _context.Reservas.Add(new Reserva
+        {
+            User = user,
+            Mesa = mesa,
+            DataInicio = DateTime.Now.AddMinutes(-60),
+            DataFim = DateTime.Now.AddMinutes(-30),
+            DataReserva = DateTime.Now.AddMinutes(-60),
+        });
+        
+        await _context.SaveChangesAsync();
+
+        var response = await _handler.Handle(new ReservaGetRequest
+        {
+            Id = testUser1
+        });
+        
+        Assert.Empty(response.Reservas);
+    }
 }
     

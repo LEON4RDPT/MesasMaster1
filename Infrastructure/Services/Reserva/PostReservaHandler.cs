@@ -25,6 +25,17 @@ public class PostReservaHandler(ApplicationDbContext context) : IPostReserva
         if (mesa is null)
             throw new MesaNotFoundException(mesaId);
         
+        var now = DateTime.Now;
+        var nowSemSegundos = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, 0);
+
+        if (request.DataInicio < nowSemSegundos)
+            throw new InvalidDateException(request.DataInicio, request.DataFim);
+
+
+        if (request.DataFim < request.DataInicio)
+            throw new InvalidDateException(request.DataInicio, request.DataFim);
+
+        
         var duration = (request.DataFim - request.DataInicio).TotalMinutes;
         if (duration > mesa.TimeLimit)
             throw new InvalidDateException(request.DataInicio, request.DataFim);

@@ -12,11 +12,14 @@ public class GetReservaUserHandler(ApplicationDbContext context) : IGetReservaUs
     
     public async Task<ReservaGetAllResponse> Handle(ReservaGetRequest request)
     {
+        var now = DateTime.Now;
+        var nowSemSegundos = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, 0);
+        
         var reservas = await _context.Reservas
             .AsNoTracking()
             .Include(r => r.Mesa)
             .Include(r => r.User)
-            .Where(r => r.User.Id == request.Id && r.Ativa)
+            .Where(r => r.User.Id == request.Id && r.Ativa && r.DataInicio >= nowSemSegundos)
             .Select(r => new ReservaGetResponse
             {
                 Id = r.Id,

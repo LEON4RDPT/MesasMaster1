@@ -236,4 +236,31 @@ public class PostReservaTests
             DataFim = dateTimeNow.AddMinutes(80)
         }));
     }
+
+    [Fact]
+    public async Task Should_Throw_If_DateTime_Invalid()
+    {
+        var userId = await AddTestUser(true);
+        var mesaId = await AddTestMesa(
+            isActive: true,
+            capUsers: 2,
+            timeLimit: 120
+        );
+
+        await Assert.ThrowsAsync<InvalidDateException>(() => _handler.Handle(new ReservaPostRequest
+        {
+            UserId = userId,
+            MesaId = mesaId,
+            DataInicio = DateTime.Now.AddMinutes(60),
+            DataFim = DateTime.Now
+        }));
+
+        await Assert.ThrowsAsync<InvalidDateException>(() => _handler.Handle(new ReservaPostRequest
+        {
+            UserId = userId,
+            MesaId = mesaId,
+            DataInicio = DateTime.Now.AddMinutes(-60),
+            DataFim = DateTime.Now.AddMinutes(-40),
+        }));
+    }
 }
