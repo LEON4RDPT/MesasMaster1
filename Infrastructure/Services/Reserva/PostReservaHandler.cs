@@ -36,6 +36,17 @@ public class PostReservaHandler(ApplicationDbContext context) : IPostReserva
         if (conflict >= mesa.CapUsers)
             throw new MesaAlreadyAtUseException(mesa.Id);
 
+        var conflictSameUserInTime = await _context.Reservas
+                .Where(r =>
+                    r.Mesa.Id == request.MesaId &&
+                    r.User.Id == userId &&
+                    r.Ativa &&
+                    r.DataInicio < request.DataFim &&
+                    request.DataInicio < r.DataFim)
+                .AnyAsync();
+        if (conflictSameUserInTime)
+            throw new DuplicateReservaException(userId: userId, startDate: request.DataInicio, endDate: request.DataFim);
+        
         await _context.Reservas.AddAsync(new Domain.Entities.Reserva
         {
             Mesa = mesa,
