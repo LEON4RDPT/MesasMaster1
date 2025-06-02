@@ -32,6 +32,5 @@ public class GetReservaUserHandler(ApplicationDbContext context) : IGetReservaUs
             .ToListAsync();
         
         return new ReservaGetAllResponse{Reservas = reservas};
-        
     }
 }

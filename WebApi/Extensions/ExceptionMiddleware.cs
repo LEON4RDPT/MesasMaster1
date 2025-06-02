@@ -74,5 +74,10 @@ public class CustomExceptionMiddleware(RequestDelegate next)
             httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             await httpContext.Response.WriteAsJsonAsync(new { message = ex.Message });
         }
+        catch (ReservaAlreadyDeletedException ex)
+        {
+            httpContext.Response.StatusCode = (int)HttpStatusCode.Conflict;
+            await httpContext.Response.WriteAsJsonAsync(new { message = ex.Message });
+        }
     }
 }

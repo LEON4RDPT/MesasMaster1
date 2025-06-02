@@ -2,6 +2,7 @@ using Application.Interfaces.Reserva;
 using Application.UseCases.Reserva.Delete;
 using Application.UseCases.Shared;
 using Domain.Exceptions.Reserva;
+using Domain.Exceptions.Shared;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,11 +14,15 @@ public class DeleteReservaHandler(ApplicationDbContext context) : IDeleteReserva
 
     public async Task<Unit> Handle(ReservaDeleteRequest request)
     {
+        if (request.Id == 0)
+            throw new MissingAttributeException("Id");
+        
         var reserva = await _context.Reservas
-            .Where(r => r.Ativa)
             .FirstOrDefaultAsync(r=> r.Id == request.Id);
         if (reserva is null)
             throw new ReservaNotFoundException(request.Id);
+        if (!reserva.Ativa) 
+            throw new ReservaAlreadyDeletedException(request.Id);
         
         reserva.Ativa = false;
         await _context.SaveChangesAsync();
