@@ -8,6 +8,7 @@ using Microsoft.OpenApi.Models;
 using WebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
+DotNetEnv.Env.Load();
 
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices();
@@ -25,9 +26,12 @@ builder.Services.AddCors(options =>
         });
 });
 
+var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ?? throw new MissingEnvironmentValue("DB_CONNECTION_STRING");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+    options.UseSqlServer(connectionString)
 );
+
 //JWT
 
 
@@ -71,8 +75,8 @@ builder.Services.AddSwaggerGen(options =>
 
 
 builder.Services.AddControllers();
-var jwtSettings = builder.Configuration.GetSection("Jwt");
-var key = Encoding.UTF8.GetBytes(jwtSettings["Key"] ?? throw new MissingEnvironmentValue("Jwt:Key"));
+var jwtKey = Environment.GetEnvironmentVariable("JWT_KEY") ?? throw new MissingEnvironmentValue("JWT_KEY");
+var key = Encoding.UTF8.GetBytes(jwtKey);   
 builder.Services.AddAuthentication(options =>
     {
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
